@@ -1,7 +1,9 @@
 name: amd64_linux_gcc
 
-on: [push, pull_request]
-
+on: 
+  push:
+    paths:
+        - '.github/workflows/amd64_linux_gcc.yml'
 jobs:
 
   amd64_linux_gcc:
@@ -18,6 +20,7 @@ jobs:
     - run: file ./bin/phantomjs
     - run: ./bin/phantomjs --version
     - run: make check
+    - run: cd ./bin && tree .
 
     - name: Release1
       uses: softprops/action-gh-release@v2
@@ -25,4 +28,4 @@ jobs:
         tag_name: 'phantomjs_amd64_linux_gcc'
         name: 'phantomjs.zip'
         files: |
-          ./bin/phantomjs
+          ./bin/
