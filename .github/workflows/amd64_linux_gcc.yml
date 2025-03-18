@@ -28,4 +28,4 @@ jobs:
         tag_name: 'phantomjs_amd64_linux_gcc'
         name: 'phantomjs.zip'
         files: |
-          ./bin/
+          ./bin/*
