@@ -5,9 +5,9 @@ on: [push, pull_request]
 jobs:
 
   amd64_linux_clang:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - run: sudo apt -y -qq update
     - run: sudo apt install -y clang cmake qt5-default libqt5webkit5-dev python
       name: Install requirements
@@ -18,3 +18,11 @@ jobs:
     - run: file ./bin/phantomjs
     - run: ./bin/phantomjs --version
     - run: make check
+
+    - name: Release1
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: 'phantomjs_amd64_linux_clang'
+        name: 'phantomjs.zip'
+        files: |
+          ./bin/phantomjs
