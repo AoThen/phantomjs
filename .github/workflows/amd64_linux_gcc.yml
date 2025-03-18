@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: sudo apt -y -qq update
-    - run: sudo apt install -y g++ cmake qt5-default libqt5webkit5-dev python
+    - run: sudo apt install -y g++ cmake qtbase5-dev libqt5webkit5-dev python-is-python3
       name: Install requirements
     - run: g++ --version && cmake --version && qmake --version && python --version
       name: Display tools version
