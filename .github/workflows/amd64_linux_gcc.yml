@@ -15,7 +15,7 @@ jobs:
       name: Install requirements
     - run: g++ --version && cmake --version && qmake --version && python --version
       name: Display tools version
-    - run: ./configure
+    - run: ./configure --disable-debug --pass-thru -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DCMAKE_FIND_LIBRARY_SUFFIXES=.a
     - run: make
     - run: file ./bin/phantomjs
     - run: ./bin/phantomjs --version
