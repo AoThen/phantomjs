@@ -1,6 +1,7 @@
 name: amd64_linux_clang
 
 on: 
+  workflow_dispatch:
   push:
     paths:
         - '.github/workflows/amd64_linux_clang.yml'
